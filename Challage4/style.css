@@ -1,0 +1,86 @@
+body{
+   
+    height: 100vh;
+    width: auto;
+    background-color: rgb(198, 166, 128);
+}
+.header{
+    display: flex;
+    margin: 30px;
+    text-align: center;
+}
+.logo{
+    margin: 20px;
+}
+
+.space-game{
+    width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    
+    
+}
+#versus{
+    /*border: 1px solid black;*/
+    padding: 300px 30px 300px 30px;
+    justify-content: center;
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+
+}
+.player{
+    /*border: 1px solid black;*/
+    
+}
+.weapon{
+    padding: 50px;
+}
+.weapon:hover{
+    cursor: pointer;
+    transition: cubic-bezier(0.215, 0.61, 0.355, 1) ease-in-out;
+    transform: scale(105%);
+    -webkit-transform: scale(105%);
+    -moz-transform: scale(105%);
+    -ms-transform: scale(105%);
+    -o-transform: scale(105%);
+    -webkit-transition: cubic-bezier(0.215, 0.61, 0.355, 1) ease-in-out;
+    -moz-transition: cubic-bezier(0.215, 0.61, 0.355, 1) ease-in-out;
+    -ms-transition: cubic-bezier(0.215, 0.61, 0.355, 1) ease-in-out;
+    -o-transition: cubic-bezier(0.215, 0.61, 0.355, 1) ease-in-out;
+}
+
+
+.enemy-weapon{
+    padding: 80px;
+    
+}
+
+
+@media(min-width:750px){
+    .space-game{
+    flex-direction: row;
+     transform: translateX(15%);
+        }
+    .player{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .weapon{
+        align-self: center;
+        width: 223px;
+    height: 204px;
+    }
+    .weapon img{
+        width: 50%;}
+    
+}
+    
+        
+
+    
+

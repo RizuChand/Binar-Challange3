@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--MAAF MAS IKSAN UNTUK SEKARANG SAYA HANYA BISA SEGINI SAYA MASIH HARUS BANYAK BELAJAR-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<!--membuat tombol back-->
+<div class="header">
+    <a href="#">Tombol kembali</a>
+    <h2 class="logo">LOGO</h2>
+    <h1 class="logo">ROCK PAPER SCISSORS</h1>
+</div>
+
+<body>
+<!--penempatan area bermain-->
+    <div class="space-game">
+        <div class="player">
+            <h1 class="player-name">Player 1</h1> 
+            <div class="weapon" id="kertas" onclick='choiceWeapon("kertas")'><img src="/assets/assets/kertas.png" alt="kertas" width="150" height="120"></div>
+            <div class="weapon" id="gunting" onclick='choiceWeapon("gunting")'><img src="/assets/assets/gunting.png" alt="gunting" width="150" height="120"></div>
+            <div class="weapon" id="batu" onclick='choiceWeapon("batu")'><img src="/assets/assets/batu.png" alt="batu" width="150" height="120"></div>
+            
+            
+           
+        </div>
+        <div class="versus-reset">
+        <h1 id="versus">VS</h1>
+        <div class="btn-reload"><img src="/assets/assets/refresh.png" alt="img-reload" width="100" height="80"></div>
+        </div>
+
+        <div class="enemy">
+            <h1 class="enemy-name">COM</h1>
+            <div class="enemy-weapon" ><img src="/assets/assets/kertas.png" alt="kertas" width="150" height="120"></div>
+            <div class="enemy-weapon" ><img src="/assets/assets/gunting.png" alt="gunting" width="150" height="120"></div>
+             <div class="enemy-weapon" ><img src="/assets/assets/batu.png" alt="batu" width="150" height="120"></div>
+            
+        </div> 
+        
+    </div>
+    <!--pembuatan tombol try again-->
+   
+    <!--javaScript code-->
+    <script>
+        class play{
+            constructor(){
+                this.name = "Player";
+                this.enemy= "Enemy";
+                this.playerWeapon;
+                this.enemyWeapon;
+                this.winner = "";
+            }
+            // percobaan menggunakan geter dan seter
+            get getPlayerWeapon (){
+                return this.playerWeapon;
+            }
+            set setPlayerWeapon (param){
+                return this.playerWeapon = param;
+            }
+            get getEnemyWeapon(){
+                return this.enemyWeapon;
+            }
+            set setEnemyWeapon(param){
+                return this.enemyWeapon = param;
+            }
+
+            // method otak bot
+            botWeapon(){
+
+            const option = ["kertas","gunting","batu"];
+            const bot = option[Math.floor(Math.random() * option.length)]
+            return bot;
+
+            }
+            //method untuk pemilihan pemenang
+            isWin() {
+                if (this.playerWeapon == "kertas" && this.enemyWeapon == "gunting") {
+                    return this.winner = this.enemy;
+                }else if (this.playerWeapon == "kertas" && this.enemyWeapon == "batu"){
+                    return this.winner = this.name;
+                }else if (this.playerWeapon == "gunting" && this.enemyWeapon == "batu"){
+                    return this.winner = this.enemy;
+                }else if (this.playerWeapon == "gunting" && this.enemyWeapon == "kertas"){
+                    return this.winner = this.name;
+                }else if (this.playerWeapon == "batu" && this.enemyWeapon == "kertas"){
+                    return this.winner = this.enemy;
+                }else if (this.playerWeapon == "batu" && this.enemyWeapon == "gunting"){
+                    return this.winner = this.name;
+                }else{
+                    return this.winner = "draw";
+                }
+               
+            }
+            matchResult(){
+                if (this.winner != "draw") {
+                    return `${this.winner} Win!`;
+                } else {
+                    return "Draw";
+                }
+                
+            }
+        }
+        //pembuatan fungsi merubah background pilihan weapon
+        function choiceWeapon(parameter) {
+            const start = new play();
+            var myElement = document.getElementById(parameter);
+
+            start.setPlayerWeapon = parameter;
+            start.enemyWeapon = start.botWeapon();
+            start.isWin();
+            myElement.style.backgroundColor = "#a39b86";
+            
+            /*console.log("player memilih ", start.getPlayerWeapon);
+            console.log("bot pilih ", start.enemyWeapon);
+            console.log("pemenang adalah ==> ", start.winner);*/
+            const result = document.getElementById("versus");
+            result.innerHTML = start.matchResult()
+            
+
+        }
+
+  
+        
+    </script>
+</body>
+
+</html>
